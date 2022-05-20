@@ -22,6 +22,8 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
+
+
 #define EPSILON 0.0001
 GLfloat layer;
 
@@ -102,7 +104,7 @@ int main(int argc, char* argv[])
     }
 
     Shader sliceShader("slice.vert", "slice.frag");
-    std::string fileSTL = "3dmodel.stl";
+    std::string fileSTL = "xyzCalibration_cube.stl";
     loadMesh(fileSTL, &num_of_verts, &bounds, &total_thickness);
     //prepareSlice();
     layer = 5;
@@ -142,14 +144,7 @@ int main(int argc, char* argv[])
         //glClipPlane(GL_CLIP_PLANE0, eqn);
         //glColor3d(1, 0, 0);
 
-        drawObject(&sliceShader);
 
-
-
-        //// draw sphere           
-   
-
-        //drawXaxis(&sliceShader);
 
 
         glfwSwapBuffers(window);
@@ -180,8 +175,10 @@ void loadMesh(std::string stl, size_t* p_num_of_verts, std::vector<GLfloat>* p_b
     std::vector<Vertex> vertices;
     std::vector<Normal> normals;
     std::vector<Triangle> objectTriangles;
-    getVertices(&vertices, &normals, stl);
-    createTriangles(objectTriangles, vertices, normals);
+    //getVertices(&vertices, &normals, stl);
+    //createTriangles(objectTriangles, vertices, normals);
+
+    getGeometryInput(stl, objectTriangles);
 
 
     float coordZfirst = 0.0;
@@ -217,7 +214,8 @@ void loadMesh(std::string stl, size_t* p_num_of_verts, std::vector<GLfloat>* p_b
     Plane planeFirst(Vertex(30.0, 30.0, coordZfirst), Vertex(30.0f, -30.0f, coordZfirst), Vertex(-30.0f, 30.0f, coordZfirst));
     Plane planeSecond(Vertex(30.0, 30.0, coordZsecond), Vertex(30.0f, -30.0f, coordZsecond), Vertex(-30.0f, 30.0f, coordZsecond));
     std::vector <Vertex> verts;
-    sliceSolid(objectTriangles, planeFirst, planeSecond, verts);
+    //sliceSolid(objectTriangles, planeFirst, planeSecond, verts);
+    getVerticesForIntersectionTriangles(objectTriangles, verts);
 
     *p_num_of_verts = size_t(verts.size());
     *p_bounds = find_min_max(verts);

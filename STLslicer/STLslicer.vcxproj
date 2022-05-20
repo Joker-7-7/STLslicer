@@ -143,10 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
-    <ClInclude Include="getGeometryInput.h" />
     <ClInclude Include="printer.h" />
-    <ClInclude Include="readASCII.h" />
-    <ClInclude Include="readBINARY.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="stb_image_write.h" />
     <ClInclude Include="util.h" />

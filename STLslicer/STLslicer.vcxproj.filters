@@ -38,14 +38,5 @@
     <ClInclude Include="stb_image_write.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="readASCII.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="readBINARY.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="getGeometryInput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
