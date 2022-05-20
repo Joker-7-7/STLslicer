@@ -249,19 +249,6 @@ void loadMesh(std::string stl, size_t* p_num_of_verts, std::vector<GLfloat>* p_b
     glEnableVertexAttribArray(0);
     glBindVertexArray(0);
 
-    //GLfloat VertXaxis[] = {
-    //    -1.0f, -1.0f, 0.0f,  // Верхний правый угол
-    //     1.0f, -1.0f, 0.0f  // Нижний правый угол
-    //};
-    //glGenVertexArrays(1, &XaxisVAO);
-    //glGenBuffers(1, &XaxisVertVBO);
-    //glBindVertexArray(XaxisVAO);
-    //glBindBuffer(GL_ARRAY_BUFFER, XaxisVertVBO);
-    //glBufferData(GL_ARRAY_BUFFER, sizeof(VertXaxis), &VertXaxis, GL_STATIC_DRAW);
-    //glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
-    //glEnableVertexAttribArray(0);
-    //glBindVertexArray(0);
-
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);    //frame mode
 }
